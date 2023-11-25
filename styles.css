@@ -1,42 +1,71 @@
 /* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #536976, #292E49);
+}
 
-  #app {
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    /* Cor com transparência para o efeito de glassmorphism */
+    backdrop-filter: blur(10px);
+    /* Desfoque do glassmorphism */
+    border-radius: 15px;
+    /* Bordas arredondadas */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra para dar destaque */
+}
+
+.container h1 {
+    color: #fff;
+    /* Cor do texto dentro do container */
+}
+
+.jumbotron {
+    background: rgba(0, 0, 0, 0.5);
+    /* Fundo do jumbotron com transparência */
+    border-radius: 15px;
+    /* Bordas arredondadas */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#app {
     max-width: 600px;
     margin: 0 auto;
-  }
+}
 
-  form {
+form {
     margin-bottom: 20px;
-  }
+}
 
-  label {
+label {
     display: block;
     margin-bottom: 5px;
-  }
+}
 
-  input {
+input {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-  }
+}
 
-  button {
+button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
-  }
+}
 
-  button:hover {
+button:hover {
     background-color: #45a049;
-  }
+}
 
-  #report {
+#report {
     margin-top: 20px;
-  }
+}
