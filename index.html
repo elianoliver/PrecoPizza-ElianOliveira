@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+    <title>Precificação de Pizzas</title>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="jumbotron bg-dark text-white">
+            <h1 class="display-4">Projeto 2 - Precificação de Pizzas</h1>
+        </div>
+
+        <form class="mb-4">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="pizzaName">Nome da Pizza:</label>
+                    <input type="text" class="form-control" id="pizzaName" required>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="pizzaSize">Tamanho:</label>
+                    <input type="number" class="form-control" id="pizzaSize" required pattern="[0-9]+">
+                    <div class="invalid-feedback">
+                        Insira apenas números.
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="pizzaPrice">Preço:</label>
+                    <input type="number" class="form-control" id="pizzaPrice" required pattern="[0-9]+">
+                    <div class="invalid-feedback">
+                        Insira apenas números.
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <button type="button" class="btn btn-success" onclick="addPizza()">Adicionar Pizza</button>
+        <button class="btn btn-primary mr-2" onclick="calculate()">Calcular</button>
+
+        <div id="report" class="mt-4">
+            <h2 class="mb-3">Relatório de Custos e Benefícios</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Tamanho</th>
+                            <th>Preço</th>
+                            <th>R$ p/cm²</th>
+                            <th>Diferença%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportBody">
+                        <!-- Conteúdo da tabela será adicionado aqui dinamicamente via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
