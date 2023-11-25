@@ -3,7 +3,16 @@ let pizzas = [];
 function addPizza() {
     const name = document.getElementById('pizzaName').value;
     const type = document.getElementById('pizzaType').value;
-    const size = document.getElementById('pizzaSize').value;
+    let size;  // Declarar size fora do bloco condicional
+
+    if (type === 'retangular') {
+        const width = document.getElementById('pizzaWidth').value;
+        const length = document.getElementById('pizzaSize').value;
+        size = `${width}x${length}`;
+    } else {
+        size = document.getElementById('pizzaSize').value;
+    }
+
     const price = parseFloat(document.getElementById('pizzaPrice').value);
 
     // Verifica se algum campo está vazio
@@ -23,6 +32,7 @@ function addPizza() {
     document.getElementById('pizzaName').value = '';
     document.getElementById('pizzaType').value = '';
     document.getElementById('pizzaSize').value = '';
+    document.getElementById('pizzaWidth').value = '';
     document.getElementById('pizzaPrice').value = '';
 
     console.log('Pizza added:', pizza);
@@ -33,11 +43,18 @@ function calculateDifferencePercent(currentPizza, previousPizza) {
         return 'Melhor CB';
     }
 
-    const currentCostBenefit = calculateCostBenefit(currentPizza);
-    const previousCostBenefit = calculateCostBenefit(previousPizza);
+    const currentPrice = currentPizza.price;
+    const previousPrice = previousPizza.price;
 
-    const differencePercent = ((previousCostBenefit - currentCostBenefit) / previousCostBenefit) * 100;
-    return `-${differencePercent.toFixed(2)}%`;
+    // Verifica se previousPrice é zero para evitar divisão por zero
+    if (previousPrice === 0) {
+        return 'Divisão por zero';
+    }
+
+    const differencePercent = ((currentPrice - previousPrice) / Math.abs(previousPrice)) * 100;
+
+    // Adiciona o sinal de mais (+) para indicar um aumento no preço
+    return `+${differencePercent.toFixed(2)}%`;
 }
 
 function calculate() {
